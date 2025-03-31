@@ -10,6 +10,10 @@ client = MongoClient('mongodb://localhost:27017/')
 db = client['gasMonitoring']
 collection = db['gas_analyze']
 
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
+
 @app.route('/update', methods=['PATCH'])
 def update_entry():
     """
